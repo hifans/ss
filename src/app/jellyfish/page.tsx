@@ -21,7 +21,6 @@ export default function Home() {
       <Hero />
       <Features />
       <ScrollingScreenshot imgs={SCREENSHOTS} />
-      {/* <FAQ /> */}
     </main>
   );
 }
