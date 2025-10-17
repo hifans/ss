@@ -3,7 +3,7 @@
 import * as React from "react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { HeroUIProvider } from "@heroui/react";
-import { Suspense, useEffect, useRef, RefObject, useCallback } from "react";
+import { Suspense, useEffect } from "react";
 import { useTopLoader } from "nextjs-toploader";
 import {
   usePathname,
