@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <style>
+    :root {
+      --background: #fff;
+      --border-color: #eaecef;
+      --mark-background-color: #ff0;
+      --mark-font-color: #000;
+      --font-color: #303030;
+      --link-color: #3eaf7c
+    }
+
+    @media (prefers-color-scheme:dark) {
+      :root {
+        --background: #000;
+        --border-color: #5a5f6a;
+        --mark-background-color: #ff0;
+        --mark-font-color: #000;
+        --font-color: #fff;
+        --link-color: #76e8a5
+      }
+    }
+
+    .dark-mode {
+      --background: #000;
+      --border-color: #5a5f6a;
+      --mark-background-color: #ff0;
+      --mark-font-color: #000;
+      --font-color: #fff;
+      --link-color: #76e8a5;
+      background: #000;
+      color: #fff
+    }
+
+    #languages {
+      color: var(--font-color);
+      display: flex;
+      font-size: .9rem;
+      opacity: .5;
+      position: absolute;
+      right: 1.5rem;
+      text-decoration: none;
+      top: .8rem
+    }
+
+    #languages:hover {
+      color: var(--font-color);
+      opacity: .6
+    }
+
+    body,
+    html {
+      background-color: var(--background);
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color: var(--font-color);
+      font-family: mi_lan_pro, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+      font-size: 16px;
+      word-break: break-word
+    }
+
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    main,
+    menu,
+    nav,
+    section,
+    summary {
+      display: block
+    }
+
+    audio,
+    canvas,
+    progress,
+    video {
+      display: inline-block
+    }
+
+    audio:not([controls]) {
+      display: none;
+      height: 0
+    }
+
+    progress {
+      vertical-align: baseline
+    }
+
+    [hidden],
+    template {
+      display: none
+    }
+
+    a,
+    p a code {
+      color: var(--link-color)
+    }
+
+    ol,
+    p,
+    ul {
+      line-height: 1.7
+    }
+
+    a {
+      font-weight: 500;
+      text-decoration: none
+    }
+
+    a:active,
+    a:hover {
+      outline-width: 0
+    }
+
+    a:focus {
+      outline: 3px solid rgba(24, 144, 255, .5) !important
+    }
+
+    abbr[title] {
+      border-bottom: none;
+      text-decoration: underline;
+      -webkit-text-decoration: underline dotted;
+      text-decoration: underline dotted
+    }
+
+    b,
+    strong {
+      font-weight: inherit;
+      font-weight: bolder
+    }
+
+    dfn {
+      font-style: italic
+    }
+
+    h1 {
+      font-size: 2em;
+      margin: .67em 0
+    }
+
+    mark {
+      background-color: var(--mark-background-color);
+      color: var(--mark-background-color)
+    }
+
+    small {
+      font-size: 80%
+    }
+
+    sub,
+    sup {
+      font-size: 75%;
+      line-height: 0;
+      position: relative;
+      vertical-align: baseline
+    }
+
+    sub {
+      bottom: -.25em
+    }
+
+    sup {
+      top: -.5em
+    }
+
+    img {
+      border-style: none
+    }
+
+    svg:not(:root) {
+      overflow: hidden
+    }
+
+    code,
+    kbd,
+    pre,
+    samp {
+      font-family: monospace, monospace;
+      font-size: 1em
+    }
+
+    figure {
+      margin: 1em 40px
+    }
+
+    hr {
+      box-sizing: content-box;
+      height: 0;
+      overflow: visible
+    }
+
+    button,
+    input,
+    optgroup,
+    select,
+    textarea {
+      font: inherit;
+      margin: 0
+    }
+
+    optgroup {
+      font-weight: 700
+    }
+
+    button,
+    input {
+      overflow: visible
+    }
+
+    button,
+    select {
+      text-transform: none
+    }
+
+    [type=reset],
+    [type=submit],
+    button,
+    html [type=button] {
+      -webkit-appearance: button
+    }
+
+    [type=button]::-moz-focus-inner,
+    [type=reset]::-moz-focus-inner,
+    [type=submit]::-moz-focus-inner,
+    button::-moz-focus-inner {
+      border-style: none;
+      padding: 0
+    }
+
+    [type=button]:-moz-focusring,
+    [type=reset]:-moz-focusring,
+    [type=submit]:-moz-focusring,
+    button:-moz-focusring {
+      outline: 1px dotted ButtonText
+    }
+
+    fieldset {
+      border: 1px solid silver;
+      margin: 0 2px;
+      padding: .35em .625em .75em
+    }
+
+    legend {
+      box-sizing: border-box;
+      color: inherit;
+      display: table;
+      max-width: 100%;
+      padding: 0;
+      white-space: normal
+    }
+
+    textarea {
+      overflow: auto
+    }
+
+    [type=checkbox],
+    [type=radio] {
+      box-sizing: border-box;
+      padding: 0
+    }
+
+    [type=number]::-webkit-inner-spin-button,
+    [type=number]::-webkit-outer-spin-button {
+      height: auto
+    }
+
+    [type=search] {
+      -webkit-appearance: textfield;
+      outline-offset: -2px
+    }
+
+    [type=search]::-webkit-search-cancel-button,
+    [type=search]::-webkit-search-decoration {
+      -webkit-appearance: none
+    }
+
+    ::-webkit-input-placeholder {
+      color: inherit;
+      opacity: .54
+    }
+
+    ::-webkit-file-upload-button {
+      -webkit-appearance: button;
+      font: inherit
+    }
+
+    html {
+      box-sizing: border-box;
+      font: 112.5%/1.45em;
+      overflow-y: scroll
+    }
+
+    *,
+    :after,
+    :before {
+      box-sizing: inherit
+    }
+
+    body {
+      word-wrap: break-word;
+      -ms-font-feature-settings: "kern", "liga", "clig", "calt";
+      -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
+      font-feature-settings: "kern", "liga", "clig", "calt";
+      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica;
+      font-kerning: normal;
+      font-weight: 400
+    }
+
+    img {
+      margin: 0 0 1.45rem;
+      max-width: 100%;
+      padding: 0
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: 600;
+      line-height: 1.25
+    }
+
+    h1 {
+      font-size: 2.2rem
+    }
+
+    h2 {
+      border-bottom: 1px solid var(--border-color);
+      font-size: 1.65rem;
+      padding-bottom: .3rem
+    }
+
+    h3 {
+      font-size: 1.35rem
+    }
+
+    hgroup {
+      margin: 0 0 1.45rem;
+      padding: 0
+    }
+
+    ol,
+    ul {
+      list-style-image: none;
+      list-style-position: outside;
+      margin: 0 0 1.45rem 1.45rem;
+      padding: 0
+    }
+
+    dd,
+    dl,
+    figure,
+    p {
+      margin: 0 0 1.45rem;
+      padding: 0
+    }
+
+    pre {
+      word-wrap: normal;
+      background: rgba(0, 0, 0, .04);
+      border-radius: 3px;
+      font-size: .85rem;
+      line-height: 1.42;
+      margin: 0 0 1.45rem;
+      overflow: auto;
+      padding: 1.45rem
+    }
+
+    table {
+      border-collapse: collapse;
+      font-size: 1rem;
+      line-height: 1.45rem;
+      width: 100%
+    }
+
+    fieldset,
+    table {
+      margin: 0 0 1.45rem;
+      padding: 0
+    }
+
+    blockquote {
+      margin: 0 1.45rem 1.45rem;
+      padding: 0
+    }
+
+    form,
+    iframe,
+    noscript {
+      margin: 0 0 1.45rem;
+      padding: 0
+    }
+
+    hr {
+      background: rgba(0, 0, 0, .2);
+      border: none;
+      height: 1px;
+      margin: 0 0 calc(1.45rem - 1px);
+      padding: 0
+    }
+
+    address {
+      margin: 0 0 1.45rem;
+      padding: 0
+    }
+
+    b,
+    dt,
+    strong,
+    th {
+      font-weight: 700
+    }
+
+    li {
+      margin-bottom: .725rem
+    }
+
+    ol li,
+    ul li {
+      padding-left: 0
+    }
+
+    li>ol,
+    li>ul {
+      margin-bottom: .725rem;
+      margin-left: 1.45rem;
+      margin-top: .725rem
+    }
+
+    blockquote :last-child,
+    li :last-child,
+    p :last-child {
+      margin-bottom: 0
+    }
+
+    li>p {
+      margin-bottom: .725rem
+    }
+
+    code,
+    kbd,
+    samp {
+      font-size: .85rem;
+      line-height: 1.45rem
+    }
+
+    abbr,
+    abbr[title],
+    acronym {
+      border-bottom: 1px dotted rgba(0, 0, 0, .5);
+      cursor: help
+    }
+
+    abbr[title] {
+      text-decoration: none
+    }
+
+    td,
+    th,
+    thead {
+      text-align: left
+    }
+
+    td,
+    th {
+      font-feature-settings: "tnum";
+      -moz-font-feature-settings: "tnum";
+      -ms-font-feature-settings: "tnum";
+      -webkit-font-feature-settings: "tnum";
+      border-bottom: 1px solid rgba(0, 0, 0, .12);
+      padding: .725rem .96667rem calc(.725rem - 1px)
+    }
+
+    td:first-child,
+    th:first-child {
+      padding-left: 0
+    }
+
+    td:last-child,
+    th:last-child {
+      padding-right: 0
+    }
+
+    code,
+    tt {
+      background-color: rgba(0, 0, 0, .04);
+      border-radius: 3px;
+      font-family: SFMono-Regular, Consolas, Roboto Mono, Droid Sans Mono, Liberation Mono, Menlo, Courier, monospace;
+      padding: .2em 0
+    }
+
+    pre code {
+      background: none;
+      line-height: 1.42
+    }
+
+    code:after,
+    code:before,
+    tt:after,
+    tt:before {
+      content: " ";
+      letter-spacing: -.2em
+    }
+
+    pre code:after,
+    pre code:before,
+    pre tt:after,
+    pre tt:before {
+      content: ""
+    }
+
+    @media only screen and (max-width:480px) {
+      html {
+        font-size: 100%
+      }
+    }
+
+    .markdown-post-container {
+      margin: 0 auto;
+      max-width: 740px
+    }
+
+    .markdown-post {
+      padding: 0 1.0875rem
+    }
+
+    .markdown-post-version-footer {
+      border-top: 1px solid rgba(0, 0, 0, .12);
+      margin: 50px auto;
+      max-width: 740px;
+      padding: 30px 1.0875rem 0
+    }
+
+    .markdown-post-version-footer div {
+      color: var(--link-color);
+      font-size: 1rem;
+      margin: 10px 0
+    }
+
+    .markdown-version {
+      font-size: 1rem;
+      margin-bottom: 30px;
+      margin-top: 50px
+    }
+
+    #downloadPdf,
+    #historyBtn {
+      cursor: pointer;
+      font-weight: 400
+    }
+
+    @media only screen and (min-device-width:480px) and (max-device-width:1280px) {
+
+      .markdown-post-container,
+      .markdown-post-version-footer {
+        max-width: 960px
+      }
+    }
+
+    .ulLan {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      margin: 0 auto;
+      max-width: 740px;
+      width: 100%
+    }
+
+    .ulLan li {
+      list-style: none;
+      padding-left: 20;
+      padding-top: 20;
+      text-align: left;
+      width: 25%
+    }
+
+    .ulLan li a {
+      padding: 3px
+    }
+
+    @media only screen and (max-width:800px) {
+      .ulLan li {
+        width: 100%
+      }
+    }
+
+    @media only screen and (min-width:800px) {
+      .ulLan li {
+        width: 25%
+      }
+    }
+  </style>
+  <title>快看水母APP更新日志</title>
+</head>
+
+<body>
+  <div style="margin:0 auto;max-width:960px;padding:0 0 1.45rem;padding-top:0">
+    <main>
+      <div class="markdown-post-container">
+        <div class="markdown-post">
+          <h1>更新日志</h1>
+          <div class="markdown-version">
+            <p>最后更新日期：<strong>2025/1/28</strong></p>
+          </div>
+          <h2>2.0</h2>
+          <p>本版本更新了IP地址库，建议重新安装。当然不安装也可以使用，只是IP地址库还使用旧的库，不影响别的功能使用。</p>
+          <ul>
+            <li>【提升】IP地址库更新为最新版，通过IP定位更为准确；</li>
+            <li>【新增】字行距：设置->界面调节->字行距；</li>
+            <li>【新增】启动页面自动适配深色模式；</li>
+            <li>【修复】修复保存到本地主题无法打开图片的缺陷；</li>
+            <li>【提升】优化了部分代码，提升性能；</li>
+          </ul>
+
+          <h2>1.8.0</h2>
+          <ul>
+            <li>【新增】可搜索版面跳转，可浏览全部版面；</li>
+            <li>【新增】在帖子菜单可以“快速回复”、“转寄”及“转载”；</li>
+            <li>【新增】在帖子菜单方便设置“签名”、“引文”及“详细时间”；</li>
+            <li>【新增】有新邮件或主题回复时有红点提示；</li>
+            <li>【新增】滑动返回可以设置为全屏、边缘或关闭：更多设置->滑动返回；</li>
+            <li>【提升】为了更快获取邮件及回复可设置在线的参数：更多设置->保持在线；</li>
+            <li>【提升】优化了登录的流程及登录界面加载速度；</li>
+            <li>【修复】修复了若干已知错误；</li>
+          </ul>
+          <h2>1.7.0</h2>
+          <ul>
+            <li>【新增】帖子收藏功能；</li>
+            <li>【新增】帖子列表增加精简模式：更多设置->界面调节；</li>
+            <li>【新增】帖子列表增加是否标识已读选项：更多设置->界面调节；</li>
+            <li>【新增】帖子详情增加显示签名、显示引文及详细时间选项：更多设置->界面调节；</li>
+            <li>【提升】优化了登录界面的加载速度；</li>
+            <li>【提升】优化了版块设置操作手感；</li>
+            <li>【修复】修复IOS 13下闪退BUG(暂时无法登录帐号)；</li>
+            <li>【修复】修复了若干已知错误；</li>
+          </ul>
+          <h2>1.6.0</h2>
+          <ul>
+            <li>【新增】首页增加“精彩帖图”模块；</li>
+            <li>【新增】板块可选择“回复”和“发布”排序；</li>
+            <li>【新增】帖子增加按页跳转功能；</li>
+            <li>【修复】完善了深色主题的界面；</li>
+            <li>【提升】优化了性能；</li>
+          </ul>
+
+          <h2>1.5.1</h2>
+          <ul>
+            <li>【修复】解析帖子时间错误;</li>
+            <li>【提升】优化了性能;</li>
+          </ul>
+
+          <h2>1.5.0</h2>
+          <ul>
+            <li>【修复】回复成功后不提示问题;</li>
+            <li>【修复】保存图片及分享异常问题;</li>
+            <li>【修复】后台切回闪屏的问题;</li>
+          </ul>
+
+          <h2>1.1.1</h2>
+          <ul>
+            <li>【修复】水木社区启用了新的域名，原版本会无法登录;</li>
+          </ul>
+
+          <h2>1.1.0</h2>
+          <ul>
+            <li>【改进】修复无法保存已读记录的BUG;
+            </li>
+            <li>【改进】 去除暂未实现功能;</li>
+          </ul>
+
+          <h2>1.0</h2>
+          <ul>
+            <li>【功能】显示IP地址地理位置;</li>
+            <li>【功能】 引用文章过长时自动折叠;</li>
+            <li>【功能】 字体大小定义;</li>
+            <li>【功能】 适应黑夜主题;</li>
+            <li>【功能】 自动记录浏览位置;</li>
+            <li>【功能】生成图片轻松分享;</li>
+            <li>【功能】用户可标注、可屏蔽;</li>
+          </ul>
+
+
+
+
+
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+
+
+</body>
+
+</html>

@@ -43,10 +43,7 @@ export function Hero() {
                   App Store
                 </Button>
               </a>
-              <Link
-                href="https://cos3.pgyer.com/26a7e13a1b4de58fc4727557ece792e2.apk?sign=c8af6ef13b384fb227f807cea1d53f13&sign2=cf0a8bd0dbba451813ce8f120be09d50&t=1760508965&response-content-disposition=attachment%3Bfilename%3D%22%E5%BF%AB%E7%9C%8B%E6%B0%B4%E6%AF%8D_2.0.0.apk%22"
-                target="_blank"
-              >
+              <Link href="https://www.pgyer.com/jellyfish" target="_blank">
                 <Button
                   variant="outline"
                   size="lg"

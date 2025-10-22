@@ -16,15 +16,17 @@ export default function MarketingLayout({
         <ul className="space-y-2 flex flex-col items-center md:items-start">
           <li>
             <Link
-              href="/terms"
+              target="_blank"
+              href="/jellyfish/eula.html"
               className="text-sm text-muted-foreground hover:text-foreground text-center md:text-left"
             >
-              服务条款
+              水木社区管理规则
             </Link>
           </li>
           <li>
             <Link
-              href="/privacy"
+              target="_blank"
+              href="/jellyfish/privacy.html"
               className="text-sm text-muted-foreground hover:text-foreground text-center md:text-left"
             >
               隐私政策
@@ -41,7 +43,8 @@ export default function MarketingLayout({
         <ul className="space-y-2 flex flex-col items-center md:items-start">
           <li>
             <Link
-              href="/"
+              target="_blank"
+              href="/jellyfish/changelog.html"
               className="text-sm text-muted-foreground hover:text-foreground text-center md:text-left"
             >
               更新日志
