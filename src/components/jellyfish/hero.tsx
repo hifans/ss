@@ -11,7 +11,7 @@ export function Hero() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h1 className="text-4xl sm:text-6xl bg-clip-text ">
-              无广告、简洁的
+              最好用且无广告的
             </h1>
             <h1 className="text-4xl font-bold sm:text-6xl bg-clip-text p-6">
               <LineText>水木社区客户端</LineText>
