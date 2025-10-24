@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "HFLXGZRCQ7.com.simplestone.jellyfish",
+        "paths": [
+          "/appjellyfish/*"
+        ]
+      }
+    ]
+  }
+}
