@@ -33,7 +33,7 @@ export function Hero() {
               还提供额外的特色功能。
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-4 md:gap-x-6">
-              <a href="https://app.adjust.com/8mq63al" target="_blank">
+              <a href="https://itunes.apple.com/app/6447085460" target="_blank">
                 <Button
                   variant="outline"
                   size="lg"
